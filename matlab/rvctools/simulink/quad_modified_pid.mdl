@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.52"
+    ComputedModelVersion    "1.53"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "siddh_000"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 08 12:45:58 2014"
-  RTWModifiedTimeStamp	  311081926
-  ModelVersionFormat	  "1.%<AutoIncrement:52>"
+  LastModifiedDate	  "Wed Jan 08 17:10:23 2014"
+  RTWModifiedTimeStamp	  311101816
+  ModelVersionFormat	  "1.%<AutoIncrement:53>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -69,6 +69,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "quad_modified_pid"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -2486,7 +2487,7 @@ Model {
 	  Position		  [255, 180, 285, 210]
 	  ZOrder		  -19
 	  ForegroundColor	  "red"
-	  Gain			  "600"
+	  Gain			  "609"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
