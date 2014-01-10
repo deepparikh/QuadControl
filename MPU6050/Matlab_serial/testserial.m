@@ -1,6 +1,7 @@
+clear 'all'
 %Open serial port for communication with arduino
 s = serial('COM3');     %change com port accroding to your connection
-set(s,'BaudRate',19200,'DataBits',8,'Parity','none','InputBufferSize',1);
+set(s,'BaudRate',9600,'DataBits',8,'Parity','none','InputBufferSize',1);
 fopen(s)
 s.ByteOrder = 'bigEndian';
 
@@ -11,10 +12,12 @@ pause(0.1);
 hf=figure; 
 
 j=1;
-k=1;
 t=1;
-interv=1000;
-string(100,6)= [zeros];
+k=0;
+interv=100;
+%stringr(100,6)= [zeros];
+%stringp(100,6)= [zeros];
+%stringy(100,6)= [zeros];
 
 while 1
 
@@ -26,64 +29,56 @@ while 1
                 
                 %roll angle 
                 for i = 1:1:6
-                    data = fread(s);
-                    string(j,i)=data;                 
+                    stringr(j,i)=fread(s);;                 
                 end
-                j = j+1;
+                
                 
                 %pitch angle
                 for i=1:1:6
-                    data = fread(s);
-                    string(j,i)=data;                 
+                    stringp(j,i)=fread(s);;                 
                 end
-                j=j+1;
                 
                 %yaw angle
                 for i=1:1:6
-                    data = fread(s);
-                    string(j,i)=data;                 
+                    stringy(j,i)=fread(s);;                 
                 end
+                
+                angle(j,1)=str2num(char(stringr(j,:)));%+(10*rand);      %roll
+                angle(j,2)=str2num(char(stringp(j,:)));      %pitch
+                angle(j,3)=str2num(char(stringy(j,:)));      %yaw
+     
+     
+                plot (angle(:,1));
+                axis ([interv-100, interv , -90 , 90 ]);
+                grid
+                t = t + 1;
+                %drawnow ;
             end
     end
     
  %convert the recived ascii string into the float numbers   
- if j>2 
-     j=j-2;
-     temp=char(string(j,:));
-     angle(k,1)=str2num(temp);      %roll
-     j=j+1;
-     temp=char(string(j,:));
-     angle(k,2)=str2num(temp);      %pitch
-     j=j+1;
-     temp=char(string(j,:));
-     angle(k,3)=str2num(temp);      %yaw
+  
      
      
-     %plot (angle(:,1));
-     %axis ([interv-1000, interv , 100 , 130 ]);
-     %grid
-     %t = t + 1;
-     %drawnow ;
- end
+ 
 
  
 
  if t== interv
-       interv=interv+1000
+       %interv=interv+100
  end 
    
  %set the packet limit to 100
  j=j+1;
  if j>=100
      j=1
+     t=1
+     clearvars angle string ;
+     clf
  end
  
- k=k+1;
- if k>=100
-     k=1
- end
  
-  %exit when 'q' key is pressed
+   %exit when 'q' key is pressed
     if strcmp(get(hf,'currentcharacter'),'q')
         fclose(s)
         close(hf)
