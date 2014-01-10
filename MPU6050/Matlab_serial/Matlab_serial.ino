@@ -621,30 +621,34 @@ void loop()
   float angle_z = gyro_angle_z;  //Accelerometer doesn't give z-angle
   set_last_read_angle_data(t_now, angle_x, angle_y, angle_z, unfiltered_gyro_angle_x, unfiltered_gyro_angle_y, unfiltered_gyro_angle_z);
   
-
+ /*
   //Serial.print(F("DEL:"));              //Delta T
   //Serial.print(dt, DEC);
-  Serial.write(F("ACC"));              //Accelerometer angle
-  Serial.print(accel_angle_x, 2);
+  Serial.write("ACC");              //Accelerometer angle
+  Serial.write(accel_angle_x);
   //Serial.print(F(","));
-  Serial.print(accel_angle_y, 2);
+  Serial.write(accel_angle_y);
   //Serial.print(F(","));
-  Serial.print(accel_angle_z, 2);
-  Serial.print(F("GYR"));
-  Serial.print(unfiltered_gyro_angle_x, 2);        //Gyroscope angle
+  Serial.write(accel_angle_z);
+  Serial.write("GYR");
+  Serial.write(unfiltered_gyro_angle_x);        //Gyroscope angle
   //Serial.print(F(","));
-  Serial.print(unfiltered_gyro_angle_y, 2);
+  Serial.write(unfiltered_gyro_angle_y);
   //Serial.print(F(","));
-  Serial.print(unfiltered_gyro_angle_z, 2);
-  Serial.print(F("FIL"));             //Filtered angle
-  
-  Serial.print(angle_x, 2);
+  Serial.write(unfiltered_gyro_angle_z);
+  Serial.write("FIL");             //Filtered angle
+  */
+  Serial.print('S');
+  Serial.print('T');
+  Serial.print(123.12,2);
+  //Serial.print(angle_x,2);
   //Serial.print(F(","));
-  Serial.print(angle_y, 2);
-  //Serial.print(F(","));
-  Serial.print(angle_z, 2);
+  /*
+  Serial.print(angle_y,2);
+  Serial.print(F(","));
+  Serial.print(angle_z,2);
   //Serial.println(F(""));
-    
+  */  
   delay(5);
 }
 int MPU6050_read(int start, uint8_t *buffer, int size)
