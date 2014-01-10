@@ -640,7 +640,9 @@ void loop()
   */
   Serial.print('S');
   Serial.print('T');
-  Serial.print(123.12,2);
+  Serial.print(123.12);
+  Serial.print(234.23);
+  Serial.print(345.34);
   //Serial.print(angle_x,2);
   //Serial.print(F(","));
   /*
