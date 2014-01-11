@@ -596,7 +596,7 @@ void loop()
   unsigned long t_now = millis();
    
 
-  float FS_SEL = 131;
+  float FS_SEL = 131,x;
   float gyro_x = (accel_t_gyro.value.x_gyro - base_x_gyro)/FS_SEL;
   float gyro_y = (accel_t_gyro.value.y_gyro - base_y_gyro)/FS_SEL;
   float gyro_z = (accel_t_gyro.value.z_gyro - base_z_gyro)/FS_SEL;
@@ -640,37 +640,84 @@ void loop()
   */
   Serial.print('S');
   Serial.print('T');
-  //Serial.print(123.1214,2);
-  
-   if(angle_x<100 && angle_x>9)
+  //Serial.print(123.12,2);
+  /*
+  x=random(-100,100);
+  x=x+0.12;
+  if(x<100 && x>=9)
     {
      Serial.print(0);
-     Serial.print(angle_x,2);
+     Serial.print(x,2);
     }
-   else if(angle_x<10 && angle_x>0)
+   else if(x<10 && x>0)
     {
      Serial.print(0);
      Serial.print(0);
-     Serial.print(angle_x,2);
+     Serial.print(x,2);
     }
-    else if(angle_x==0)
+    else if(x==0)
     {
      Serial.print(0);
      Serial.print(0);
-     Serial.print(angle_x,2);
+     Serial.print(x,2);
     }
-    else if(angle_x<0 && angle_x>(-10))
+    else if(x<0 && x>(-10))
     {
-     angle_x=-angle_x;
+     x=-x;
      Serial.print('-');
      Serial.print(0);
-     Serial.print(angle_x,2);
+     Serial.print(x,2);
     }
     
    else
    {
-     Serial.print(angle_x,2);
+     Serial.print(x,2);
    }
+  */
+   if(angle_x<100 && angle_x>9.5)
+    {
+     Serial.print(0);
+     Serial.print(angle_x,0);
+     Serial.print('.');
+     Serial.print(0);
+     Serial.print(0);
+    }
+   else if(angle_x<=9.5 && angle_x>0.5)
+    {
+     Serial.print(0);
+     Serial.print(0);
+     Serial.print(angle_x,0);
+     Serial.print('.');
+     Serial.print(0);
+     Serial.print(0);
+    }
+    else if(angle_x<=0.5 && angle_x>=-0.5 )
+    {
+     Serial.print(0);
+     Serial.print(0);
+     Serial.print(0);
+     Serial.print('.');
+     Serial.print(0);
+     Serial.print(0);
+    }
+    else if(angle_x<-0.5 && angle_x>(-9.5))
+    {
+     angle_x=-angle_x;
+     Serial.print('-');
+     Serial.print(0);
+     Serial.print(angle_x,0);
+     Serial.print('.');
+     Serial.print(0);
+     Serial.print(0);
+    }
+    else
+    {
+      Serial.print(angle_x,0);
+      Serial.print('.');
+      Serial.print(0);
+      Serial.print(0);
+    }
+  
   //Serial.print(-34.23);
   //Serial.print(345.34);
   
@@ -683,7 +730,7 @@ void loop()
  
   
    
-  delay(5);
+  delay(50);
 }
 int MPU6050_read(int start, uint8_t *buffer, int size)
 {
