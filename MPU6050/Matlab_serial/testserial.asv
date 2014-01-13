@@ -67,22 +67,22 @@ while 1
                 %t = t + 1;
                 %if t>10
                 %   v=v+1;
-                %   t=1;
+                %    t=1;
                 %end
                 %if j>10
                 %    for k=1:1:10
-                %       newf(k,:)=feed(k+(v-1)+(t-1),:);
+                %        newf(k,:)=feed(k+(v-1)+(t-1),:);
                 %        newf(k,1)=k;
-                %    end
+                %   end
                 %h.Bodies{1}.TimeSeriesSource = newf;
                 %h.show();
                 %h.play();
-                %end 
-              
-                plot (angle);
-                axis ([interv-100, interv , -100 , 100 ]);
-                grid
-                %drawnow ;
+                 
+                %end
+                %plot (angle);
+                %axis ([interv-100, interv , -100 , 100 ]);
+                %grid
+                % drawnow ;
             end
     end  
  %set the packet limit to 100

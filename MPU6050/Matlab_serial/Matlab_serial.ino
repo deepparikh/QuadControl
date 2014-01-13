@@ -572,7 +572,7 @@ void setup()
   uint8_t c;
 
 
-  Serial.begin(9600);
+  Serial.begin(115200);
     Wire.begin();
 
 
@@ -674,50 +674,10 @@ void loop()
      Serial.print(x,2);
    }
   */
-   if(angle_x<100 && angle_x>9.5)
-    {
-     Serial.print(0);
-     Serial.print(angle_x,0);
-     Serial.print('.');
-     Serial.print(0);
-     Serial.print(0);
-    }
-   else if(angle_x<=9.5 && angle_x>0.5)
-    {
-     Serial.print(0);
-     Serial.print(0);
-     Serial.print(angle_x,0);
-     Serial.print('.');
-     Serial.print(0);
-     Serial.print(0);
-    }
-    else if(angle_x<=0.5 && angle_x>=-0.5 )
-    {
-     Serial.print(0);
-     Serial.print(0);
-     Serial.print(0);
-     Serial.print('.');
-     Serial.print(0);
-     Serial.print(0);
-    }
-    else if(angle_x<-0.5 && angle_x>(-9.5))
-    {
-     angle_x=-angle_x;
-     Serial.print('-');
-     Serial.print(0);
-     Serial.print(angle_x,0);
-     Serial.print('.');
-     Serial.print(0);
-     Serial.print(0);
-    }
-    else
-    {
-      Serial.print(angle_x,0);
-      Serial.print('.');
-      Serial.print(0);
-      Serial.print(0);
-    }
-  
+   
+  Serial.write(char(angle_x));
+  Serial.write(char(angle_y));  
+  Serial.write(char(angle_z));
   //Serial.print(-34.23);
   //Serial.print(345.34);
   
