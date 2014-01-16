@@ -6,7 +6,7 @@ h.TimeScaling = 50;
 idx1 = h.createBody('pa24-250_orange.ac','Ac3d');
 
 %Open serial port for communication with arduino
-s = serial('COM3');     %change com port accroding to your connection
+s = serial('COM10');     %change com port accroding to your connection
 set(s,'BaudRate',115200,'DataBits',8,'Parity','none','InputBufferSize',1);
 fopen(s)
 s.ByteOrder = 'bigEndian';
@@ -27,22 +27,27 @@ interv=100;
 %stringy(100,6)= [zeros];
 
 newf(10,7)=[zeros];
-while 1
+
+while ishandle(hf)
 
     data = fread(s);
-    if data =='S' %start byte
+    if (data =='S')  %start byte
          data = fread(s);
-            if data == 'T' %start byte                
+            if (data == 'T') %start byte                
                 %roll angle 
-                angle(j,1)=(fread(s));
-                angle(j,2)=(fread(s));
-                angle(j,3)=(fread(s));
+                angle(j,1)=fread(s);
                 if angle(j,1)>127
                     angle(j,1)=angle(j,1)-255;
                 end
+
+                angle(j,2)=fread(s);
+                
                 if angle(j,2)>127
                     angle(j,2)=angle(j,2)-255;
                 end
+                
+                angle(j,3)=fread(s);
+                
                 if angle(j,3)>127
                     angle(j,3)=angle(j,3)-255;
                 end
@@ -82,7 +87,7 @@ while 1
                 plot (angle);
                 axis ([interv-100, interv , -100 , 100 ]);
                 grid
-                %drawnow ;
+                drawnow ;
             end
     end  
  %set the packet limit to 100
@@ -94,16 +99,16 @@ while 1
      feed(100,7)=[zeros];
  end
    %exit when 'q' key is pressed
-    if strcmp(get(hf,'currentcharacter'),'q')
-        fclose(s)
-        close(hf)
-       break
-    end
+    %if strcmp(get(hf,'currentcharacter'),'q')
+        %fclose(s)
+        %close(hf)
+    %   break
+    %end
     
    %figure(hf) 
-    drawnow
+   %drawnow
 end
 
-close
+fclose(s)
+display('Port closed')
 delete(s)
-clear s
