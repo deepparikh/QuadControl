@@ -1,0 +1,6 @@
+Low ESR Capacitor: vishay element 14/470uf
+http://in.element14.com/jsp/displayProduct.jsp?sku=1834141&action=view&CMP=GRHS-1000100
+
+Low ESR Capacitor: vishay element 14/1000uf
+http://in.element14.com/jsp/displayProduct.jsp?sku=1834142&action=view&CMP=GRHS-1000100
+
