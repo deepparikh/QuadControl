@@ -561,8 +561,7 @@ void calibrate_sensors() {
   base_z_accel = z_accel;
   base_x_gyro = x_gyro;
   base_y_gyro = y_gyro;
-  base_z_gyro = z_gyro;
-  
+  base_z_gyro = z_gyro; 
  }
 
 
@@ -572,7 +571,7 @@ void setup()
   uint8_t c;
 
 
-  Serial.begin(115200);
+  Serial1.begin(9600);
     Wire.begin();
 
 
@@ -638,8 +637,8 @@ void loop()
   Serial.write(unfiltered_gyro_angle_z);
   Serial.write("FIL");             //Filtered angle
   */
-  Serial.print('S');
-  Serial.print('T');
+  Serial1.print('S');
+  Serial1.print('T');
   //Serial.print(123.12,2);
   /*
   x=random(-100,100);
@@ -674,11 +673,17 @@ void loop()
      Serial.print(x,2);
    }
   */
-   
-  Serial.write(char(angle_x));
-  Serial.write(char(angle_y));  
-  Serial.write(char(angle_z));
-  
+  Serial1.write(char(angle_x));
+  Serial1.write(char(angle_y));  
+  Serial1.write(char(angle_z));
+
+/*  Serial1.print("  ");
+  Serial1.print(angle_x);
+  Serial1.print("  ");
+  Serial1.print(angle_y);  
+  Serial1.print("  ");
+  Serial1.println(angle_z);
+  */
   //Serial.print(-34.23);
   //Serial.print(345.34);
   
