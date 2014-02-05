@@ -2,8 +2,8 @@ clear 'all'
 
 
 %Open serial port for communication with arduino
-s = serial('COM8');     %change com port accroding to your connection
-set(s,'BaudRate',9600,'DataBits',8,'Parity','none','InputBufferSize',1,'Timeout',1);
+s = serial('COM10');     %change com port accroding to your connection
+set(s,'BaudRate',57600,'DataBits',8,'Parity','none','InputBufferSize',1,'Timeout',1);
 fopen(s)
 s.ByteOrder = 'bigEndian';
 

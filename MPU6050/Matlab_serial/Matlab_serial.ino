@@ -572,7 +572,7 @@ void setup()
   uint8_t c;
 
 
-  Serial.begin(115200);
+  Serial.begin(57600);
     Wire.begin();
 
 
@@ -674,23 +674,21 @@ void loop()
      Serial.print(x,2);
    }
   */
-   
+  
+ 
   Serial.write(char(angle_x));
   Serial.write(char(angle_y));  
   Serial.write(char(angle_z));
   
-  //Serial.print(-34.23);
-  //Serial.print(345.34);
-  
-   
-  //Serial.print(F(","));
-  //Serial.print(angle_y,2);
-  //Serial.print(F(","));
-  //Serial.print(angle_z,2);
-  //Serial.println(F(""));
+ /*
+  Serial.print(" ");
+  Serial.print(angle_x);
+  Serial.print(" ");
+  Serial.print(angle_y);
+  Serial.print(" ");  
+  Serial.println(angle_z);
  
-  
-   
+ */ 
   delay(50);
 }
 int MPU6050_read(int start, uint8_t *buffer, int size)
