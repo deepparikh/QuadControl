@@ -1,1 +1,5 @@
+connectors:-
 http://pixhawk.org/modules/pixhawk
+
+xbee and pixhawk:-
+https://pixhawk.ethz.ch/tutorials/how_to_configure_xbee
