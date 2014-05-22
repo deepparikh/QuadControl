@@ -1,7 +1,8 @@
 const int analogOutPin = 9; // Analog output pin that the LED is attached to
 int outputValue;
 int i=0;
-void setup() {
+void setup() 
+{
   pinMode(13, OUTPUT); 
   
   Serial.begin(9600);

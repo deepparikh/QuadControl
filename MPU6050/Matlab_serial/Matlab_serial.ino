@@ -674,11 +674,12 @@ void loop()
      Serial.print(x,2);
    }
   */
-  
- 
-  Serial.write(char(angle_x));
-  Serial.write(char(angle_y));  
-  Serial.write(char(angle_z));
+  Serial.print(";");
+  Serial.print(angle_x);
+  Serial.print(";");
+  Serial.print(angle_y);
+  Serial.print(";");  
+  Serial.println(angle_z);
   
  /*
   Serial.print(" ");

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.53"
+    ComputedModelVersion    "1.56"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,11 +27,11 @@ Model {
   Creator		  "deep"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "siddh_000"
+  LastModifiedBy	  "deep"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 08 17:10:23 2014"
-  RTWModifiedTimeStamp	  311101816
-  ModelVersionFormat	  "1.%<AutoIncrement:53>"
+  LastModifiedDate	  "Fri Feb 07 20:16:49 2014"
+  RTWModifiedTimeStamp	  313704675
+  ModelVersionFormat	  "1.%<AutoIncrement:56>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -69,7 +69,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "quad_modified_pid"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -135,7 +134,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.11.1"
 	  StartTime		  "0.0"
-	  StopTime		  "20"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -871,7 +870,7 @@ Model {
   }
   System {
     Name		    "quad_modified_pid"
-    Location		    [2, 83, 1347, 715]
+    Location		    [2, 83, 1262, 715]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1526,8 +1525,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Converterblock"
-	Location		[650, 83, 1270, 700]
-	Open			on
+	Location		[647, 100, 1267, 711]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1958,7 +1957,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"PID_height"
-	Location		[473, 95, 1378, 654]
+	Location		[329, 158, 1234, 717]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2237,7 +2236,7 @@ Model {
       System {
 	Name			"PID_pitch"
 	Location		[369, 143, 1274, 702]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2310,7 +2309,7 @@ Model {
 	  Position		  [255, 130, 285, 160]
 	  ZOrder		  -19
 	  ForegroundColor	  "red"
-	  Gain			  "-2000"
+	  Gain			  "-1500"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
@@ -2418,7 +2417,7 @@ Model {
       Name		      "PID_roll"
       SID		      "67"
       Ports		      [3, 1]
-      Position		      [620, 183, 710, 277]
+      Position		      [620, 188, 710, 282]
       ZOrder		      -8
       DropShadow	      on
       AncestorBlock	      "roblocks/Dynamics/Control Mixer"
@@ -2817,8 +2816,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Quadrotor"
-	Location		[2, 83, 1348, 715]
-	Open			off
+	Location		[2, 83, 1262, 715]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2898,7 +2897,7 @@ Model {
 	  method		  "Butterworth"
 	  filttype		  "Lowpass"
 	  N			  "8"
-	  Wlo			  "1"
+	  Wlo			  "10"
 	  Whi			  "80"
 	  Rp			  "2"
 	  Rs			  "40"
@@ -3036,7 +3035,7 @@ Model {
 	  SourceBlock		  "commnoisgen2/Gaussian Noise\nGenerator"
 	  SourceType		  "Gaussian Noise Generator"
 	  m			  "0"
-	  d			  "0.01"
+	  d			  "0"
 	  s			  "0"
 	  Ts			  "0.01"
 	  frameBased		  off
@@ -3095,7 +3094,7 @@ Model {
 	  Position		  [805, 144, 835, 176]
 	  ZOrder		  -3
 	  Floating		  off
-	  Location		  [5, 49, 1371, 727]
+	  Location		  [5, 49, 1281, 727]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  ZoomMode		  "xonly"
@@ -3124,7 +3123,7 @@ Model {
 	  Position		  [805, 89, 835, 121]
 	  ZOrder		  -3
 	  Floating		  off
-	  Location		  [5, 49, 1371, 727]
+	  Location		  [5, 49, 1281, 727]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  List {
@@ -3153,7 +3152,7 @@ Model {
 	  Position		  [805, 39, 835, 71]
 	  ZOrder		  -3
 	  Floating		  off
-	  Location		  [5, 49, 1371, 727]
+	  Location		  [5, 49, 1281, 727]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  ZoomMode		  "xonly"
@@ -3422,6 +3421,7 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
+	    Labels		    [2, 0]
 	    Points		    [0, -15]
 	    DstBlock		    "Mux2"
 	    DstPort		    1
@@ -3603,7 +3603,7 @@ Model {
       Position		      [1175, 34, 1205, 66]
       ZOrder		      -24
       Floating		      off
-      Location		      [6, 48, 1282, 727]
+      Location		      [5, 48, 1281, 727]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -4307,7 +4307,7 @@ Model {
     Line {
       SrcBlock		      "PID_roll"
       SrcPort		      1
-      Points		      [35, 0; 0, -5]
+      Points		      [35, 0; 0, -10]
       DstBlock		      "Control Mixer"
       DstPort		      2
     }
@@ -4321,7 +4321,6 @@ Model {
     Line {
       SrcBlock		      "Converterblock"
       SrcPort		      2
-      Points		      [200, 0]
       DstBlock		      "PID_roll"
       DstPort		      1
     }
@@ -4348,7 +4347,7 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Bus\nSelector2"
       SrcPort		      3
-      Points		      [55, 0; 0, -60]
+      Points		      [55, 0; 0, -55]
       DstBlock		      "PID_roll"
       DstPort		      2
     }
